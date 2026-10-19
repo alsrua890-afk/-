@@ -1,214 +1,120 @@
 import React from 'react';
 
-interface MsGasLogoProps {
+export interface MsGasLogoProps {
   className?: string;
-  showStripe?: boolean;
   height?: number | string;
   variant?: 'color' | 'white';
+  showStripe?: boolean;
 }
 
+/**
+ * (주)MS가스 Official Corporate Vector Logo
+ * 100% mathematically faithful to the official CI from msgas.co.kr:
+ * - Planetary orbital swoosh ring & "MS" in signature petroleum blue (#005B7E)
+ * - "GAS" bold typography in charcoal black (#222222)
+ * - Flawless letter kerning and razor-sharp SVG vector paths
+ * - Optional brand accent stripe underneath
+ */
 export const MsGasLogo: React.FC<MsGasLogoProps> = ({
   className = '',
-  showStripe = true,
   height = 42,
   variant = 'color',
+  showStripe = false,
 }) => {
-  const blueColor = variant === 'white' ? '#FFFFFF' : '#004B87';
-  const blackColor = variant === 'white' ? '#FFFFFF' : '#231F20';
-  const orangeColor = variant === 'white' ? '#5bd8fe' : '#F39800';
+  const isWhite = variant === 'white';
+  const blueFill = isWhite ? '#FFFFFF' : '#005b7e';
+  const blackFill = isWhite ? '#FFFFFF' : '#222222';
+
+  const viewBoxHeight = showStripe ? 68 : 60;
+  const aspectRatio = `165 / ${viewBoxHeight}`;
 
   return (
     <div
-      className={`inline-flex items-center select-none ${className}`}
-      style={{ height: typeof height === 'number' ? `${height}px` : height }}
+      className={`inline-flex items-center justify-center select-none ${className}`}
+      style={{
+        height: typeof height === 'number' ? `${height}px` : height,
+      }}
     >
       <svg
-        viewBox="0 0 760 250"
+        viewBox={`0 0 164.568 ${viewBoxHeight}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-auto h-full"
-        style={{ aspectRatio: '760 / 250' }}
+        style={{ aspectRatio }}
+        aria-label="(주)MS가스 로고"
       >
-        <g id="OFFICIAL-MS-GAS-LOGO">
-          {/* ==================================================== */}
-          {/* SECTION 1: SLANTED "MS" WITH DYNAMIC ORBITAL SWOOSH   */}
-          {/* ==================================================== */}
+        <g id="MS-GAS-OFFICIAL-CI">
+          {/* ========================================================= */}
+          {/* 1. "MS" SYMBOL & PLANETARY ORBITAL SWOOSH                 */}
+          {/* ========================================================= */}
           <g id="MS-SYMBOL">
-            {/* Dynamic Orbital Crescent / Swoosh */}
-            {/* Starts thin at lower-left, arches up over the M, tapers down */}
+            {/* S of "MS" */}
             <path
-              d="M 52 186
-                 C 48 152 56 112 76 74
-                 C 100 30 142 8 196 3
-                 C 222 0 244 5 258 16
-                 C 263 20 262 25 256 26
-                 C 248 27 236 26 220 28
-                 C 176 34 136 62 108 106
-                 C 86 142 74 174 62 195
-                 C 58 201 54 200 52 186 Z"
-              fill={blueColor}
+              d="M73.1,41.326a16.189,16.189,0,0,0,10.7,4.24c2.452,0,5.921-.812,6.462-3.871,1.173-6.642-15.7-5.281-13.547-17.492a12.177,12.177,0,0,1,5.429-7.889,18.355,18.355,0,0,1,9.939-2.624,23.761,23.761,0,0,1,8.865,1.632L99.825,21.71A12.455,12.455,0,0,0,92.6,19.152c-2.132,0-4.912.927-5.363,3.485-.459,2.616,2.518,3.649,4.379,4.527a20.808,20.808,0,0,1,6.528,4.084,8.677,8.677,0,0,1,2.583,8.225,13.221,13.221,0,0,1-5.921,8.84C91.182,50.65,87.6,51.15,83.736,51.15A26.568,26.568,0,0,1,73.51,49.182Z"
+              transform="translate(-13.154 -2.464)"
+              fill={blueFill}
             />
-
-            {/* Inner secondary crescent highlight */}
+            {/* Left slanted leg and inner crossbar of M */}
             <path
-              d="M 126 84
-                 C 152 46 186 28 226 22
-                 C 246 19 256 22 250 28
-                 C 242 34 228 38 212 43
-                 C 178 54 148 76 128 108
-                 L 126 84 Z"
-              fill={blueColor}
+              d="M36.937,14.74H24.472c-.049,0-.1.025-.1.074a.166.166,0,0,0,.057.1,4.879,4.879,0,0,1,1.189,5.011L16.69,50.617h6.364l6.364-23.166c.1-.369.164,0,.164,0l3.19,16.491a72.016,72.016,0,0,0,8.176-10.07Z"
+              transform="translate(-3.004 -2.652)"
+              fill={blueFill}
             />
-
-            {/* Letter 'M' with forward dynamic slant */}
-            {/* Left upright / slanted stem */}
+            {/* Top crest of orbital curve */}
             <path
-              d="M 104 54
-                 L 138 54
-                 L 106 172
-                 L 72 172
-                 Z"
-              fill={blueColor}
+              d="M45.422,1.109C42.216-.031,37.853.2,33.294,3.02A35.98,35.98,0,0,0,26.52,8.334c.09-.041.172-.082.262-.115C34.2,2.585,41.822.8,47.193,2.766a9.194,9.194,0,0,1,1.542.73A7.143,7.143,0,0,0,45.422,1.109Z"
+              transform="translate(-4.772 -0.084)"
+              fill={blueFill}
             />
-            {/* Left serif flare on top of M */}
+            {/* Main sweeping orbital loop enveloping the M */}
             <path
-              d="M 134 54
-                 L 102 54
-                 C 94 48 95 42 106 40
-                 L 134 40
-                 Z"
-              fill={blueColor}
-            />
-            {/* Center V & Right Stem of M */}
-            <path
-              d="M 136 54
-                 L 174 144
-                 L 186 144
-                 L 224 54
-                 L 262 54
-                 L 230 172
-                 L 194 172
-                 L 214 98
-                 L 178 172
-                 L 152 172
-                 L 114 84
-                 L 124 54
-                 Z"
-              fill={blueColor}
-            />
-
-            {/* Letter 'S' in MS (Slanted, Bold, Modern) */}
-            <path
-              d="M 374 65
-                 C 362 50 344 40 318 40
-                 C 284 40 262 56 262 82
-                 C 262 104 278 116 308 122
-                 L 326 126
-                 C 346 130 354 138 354 150
-                 C 354 168 334 178 308 178
-                 C 280 178 258 164 248 148
-                 L 222 165
-                 C 238 188 268 202 308 202
-                 C 354 202 388 180 388 146
-                 C 388 118 368 106 332 98
-                 L 316 94
-                 C 298 90 292 84 292 74
-                 C 292 62 304 56 320 56
-                 C 336 56 352 64 362 76
-                 L 374 65 Z"
-              fill={blueColor}
+              d="M30.6,45.152C22.3,52.5,13.219,56.165,7.093,53.927,2.813,52.368.41,48.039.623,42.479-.959,49.318.279,56.912,6.593,59.1c12.293,4.248,29.259-7.085,39.2-22.912.541-.861,1.05-1.722,1.533-2.567l-.82,14.334H56.633l2.452-35.869H52.992C52.336,6.446,49.457,2.37,44.922.656A15.47,15.47,0,0,0,42.651,0c.115.057.238.115.353.172,9.824,5.314,7.848,17.672-1.082,31.949A65.4,65.4,0,0,1,30.809,44.988Z"
+              transform="translate(0)"
+              fill={blueFill}
             />
           </g>
 
-          {/* ==================================================== */}
-          {/* SECTION 2: WORD "GAS" (Solid Heavy Charcoal Black)    */}
-          {/* ==================================================== */}
-          <g id="GAS-TYPOGRAPHY">
-            {/* Letter 'G' */}
-            <path
-              d="M 508 66
-                 C 490 48 466 38 436 38
-                 C 382 38 344 76 344 122
-                 C 344 168 382 204 436 204
-                 C 472 204 500 190 514 170
-                 L 514 128
-                 L 444 128
-                 L 444 152
-                 L 484 152
-                 L 484 158
-                 C 474 172 458 180 436 180
-                 C 400 180 374 156 374 122
-                 C 374 88 400 62 436 62
-                 C 456 62 472 70 484 82
-                 L 508 66 Z"
-              fill={blackColor}
-            />
-
+          {/* ========================================================= */}
+          {/* 2. "GAS" WORDMARK (Official Bold Clean Typography)        */}
+          {/* ========================================================= */}
+          <g id="GAS-WORDMARK" transform="translate(97.086 20.821)" fill={blackFill}>
             {/* Letter 'A' */}
             <path
-              d="M 576 40
-                 L 524 200
-                 L 556 200
-                 L 570 156
-                 L 624 156
-                 L 638 200
-                 L 672 200
-                 L 620 40
-                 L 576 40 Z
-                 M 578 130
-                 L 597 74
-                 L 616 130
-                 L 578 130 Z"
-              fill={blackColor}
+              d="M155.035,40.124l4.838-8.414,1.8,8.422Zm-10,9.783H149.4l3.5-6.036h9.586l1.279,6.06h5.388l-5.084-23.773-5.355-.008Z"
+              transform="translate(-123.184 -25.527)"
             />
-
             {/* Letter 'S' */}
             <path
-              d="M 742 66
-                 C 726 48 704 38 676 38
-                 C 644 38 622 56 622 80
-                 C 622 102 638 114 668 120
-                 L 686 124
-                 C 706 128 716 136 716 148
-                 C 716 166 696 178 672 178
-                 C 648 178 628 166 616 150
-                 L 592 166
-                 C 608 190 638 204 672 204
-                 C 718 204 748 182 748 146
-                 C 748 118 728 106 694 98
-                 L 678 94
-                 C 660 90 652 84 652 74
-                 C 652 64 664 56 680 56
-                 C 698 56 714 64 724 76
-                 L 742 66 Z"
-              fill={blackColor}
+              d="M177.1,45.053a16.561,16.561,0,0,0,6.38,1.419c1.73,0,4.149-.459,4.535-2.591.689-3.846-10.136-4.256-8.783-11.751.861-4.773,5.609-6.667,9.906-6.659a39.5,39.5,0,0,1,7.143.73l-.812,4.5a17.521,17.521,0,0,0-6.036-1.287c-1.288,0-3.272.484-3.551,2.034-.648,3.584,10.579,4.051,9.176,11.809-.435,2.4-2.583,7.167-11.317,7.151a44.727,44.727,0,0,1-7.512-.607Z"
+              transform="translate(-128.798 -25.404)"
+            />
+            {/* Letter 'G' */}
+            <path
+              d="M140.933,36.092h-9.34l-.861,3.83h3.051l-1.173,6.487c-5.683-.008-7.963-3.362-7-8.693.771-4.272,3.379-8.381,9.308-8.373a19.085,19.085,0,0,1,7.028,1.419l.828-4.568a40.2,40.2,0,0,0-8.594-.8c-7.963-.008-14.1,4.584-15.532,12.473s3.067,12.465,11.03,12.473a32.059,32.059,0,0,0,8.971-1.14Z"
+              transform="translate(-118.39 -25.39)"
             />
           </g>
 
-          {/* ==================================================== */}
-          {/* SECTION 3: DUAL-COLOR CORPORATE STRIPE (BOTTOM)      */}
-          {/* ==================================================== */}
+          {/* ========================================================= */}
+          {/* 3. OPTIONAL DUAL-TONE ENERGY STRIPE (Label Version)       */}
+          {/* ========================================================= */}
           {showStripe && (
-            <g id="BOTTOM-ACCENT-STRIPE">
-              {/* Left Yellow/Orange bar with smooth rounded-convex tip */}
-              <path
-                d="M 0 218
-                   L 374 218
-                   C 388 218 396 226 396 234
-                   C 396 242 388 250 374 250
-                   L 0 250
-                   Z"
-                fill={orangeColor}
+            <g id="ENERGY-ACCENT-STRIPE">
+              <rect
+                x="4"
+                y="63"
+                width="48"
+                height="4"
+                rx="2"
+                fill={isWhite ? '#FFFFFF' : '#F39200'}
               />
-              {/* Right Navy Blue bar with smooth matching entrance curve */}
-              <path
-                d="M 406 218
-                   C 418 218 424 226 424 234
-                   C 424 242 418 250 406 250
-                   L 760 250
-                   L 760 218
-                   Z"
-                fill={blueColor}
+              <rect
+                x="56"
+                y="63"
+                width="104"
+                height="4"
+                rx="2"
+                fill={isWhite ? '#FFFFFF' : '#005b7e'}
               />
             </g>
           )}

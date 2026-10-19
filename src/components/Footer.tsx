@@ -25,8 +25,8 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: Brand & Registration */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <div className="bg-white px-2.5 py-1 rounded-lg shadow-sm">
-                <MsGasLogo height={26} showStripe={true} />
+              <div className="bg-white px-2.5 py-1.5 rounded-lg shadow-sm flex items-center justify-center">
+                <MsGasLogo height={28} showStripe={false} />
               </div>
               <span className="text-xl sm:text-2xl font-extrabold text-[#f4faff] tracking-tight">
                 {isKo ? '(주)MS가스' : 'MS GAS Co., Ltd.'}

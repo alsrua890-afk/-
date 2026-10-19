@@ -13,10 +13,12 @@ import { NoticeSection } from './components/NoticeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { Modals } from './components/Modals';
+import { Chatbot } from './components/Chatbot';
 import { ProductItem, NoticeItem, HubItem } from './data/mockData';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<'ko' | 'en'>('ko');
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
   // Modals state
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
@@ -68,6 +70,7 @@ export default function App() {
         onOpenPortal={() => setShowTelemetryModal(true)}
         onOpenCompany={() => setShowCompanyModal(true)}
         onOpenBranches={() => handleOpenBranches()}
+        onOpenChat={() => setIsChatOpen(true)}
       />
 
       {/* Main Page Flow matching user screens */}
@@ -124,6 +127,16 @@ export default function App() {
         onOpenInquiry={scrollToSupport}
         onOpenMsds={() => setShowMsdsModal(true)}
         onOpenLegal={(title, content) => setLegalModalData({ title, content })}
+      />
+
+      {/* 9. MS Gas AI Chatbot Assistant */}
+      <Chatbot
+        currentLang={currentLang}
+        isOpen={isChatOpen}
+        onToggle={() => setIsChatOpen(!isChatOpen)}
+        onOpenInquiry={scrollToSupport}
+        onOpenMsds={() => setShowMsdsModal(true)}
+        onOpenBranches={() => handleOpenBranches()}
       />
 
       {/* Unified Modals & Interactive Overlays */}

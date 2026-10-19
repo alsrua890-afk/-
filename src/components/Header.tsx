@@ -8,6 +8,7 @@ interface HeaderProps {
   onOpenPortal: () => void;
   onOpenCompany: () => void;
   onOpenBranches: () => void;
+  onOpenChat?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +18,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPortal,
   onOpenCompany,
   onOpenBranches,
+  onOpenChat,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,14 +42,14 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="fixed top-0 left-0 w-full z-50 bg-[#f4faff]/90 backdrop-blur-xl border-b border-[#0b192c]/5 shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all">
       <div className="h-20 max-w-[1360px] mx-auto px-6 flex items-center justify-between gap-4">
         {/* Brand Logo */}
-        <div className="flex items-center gap-2">
-          <a href="#" className="flex items-center gap-2.5 group">
+        <div className="flex items-center gap-3">
+          <a href="#" className="flex items-center gap-3 group py-1">
             <MsGasLogo
-              height={38}
-              showStripe={true}
-              className="transition-transform group-hover:scale-105 drop-shadow-sm"
+              height={40}
+              showStripe={false}
+              className="transition-transform group-hover:scale-105"
             />
-            <span className="font-extrabold text-xl md:text-2xl text-[#001332] tracking-tight hidden sm:inline-block">
+            <span className="font-extrabold text-xl md:text-[22px] text-[#001332] tracking-tight hidden sm:inline-block">
               {currentLang === 'ko' ? '(주)MS가스' : 'MS GAS Co., Ltd.'}
             </span>
           </a>
@@ -108,6 +110,19 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {currentLang === 'ko' ? '온라인 문의' : 'Online Inquiry'}
           </button>
+
+          {/* AI Chatbot Button */}
+          {onOpenChat && (
+            <button
+              type="button"
+              onClick={onOpenChat}
+              title={currentLang === 'ko' ? 'MS가스 AI 챗봇 상담' : 'MS Gas AI Chat'}
+              className="relative w-9 h-9 rounded-full bg-[#00677e] hover:bg-[#5bd8fe] hover:text-[#001332] text-white flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105"
+            >
+              <span className="material-symbols-outlined text-[19px]">smart_toy</span>
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#38E54D] rounded-full border-2 border-[#001332]" />
+            </button>
+          )}
 
           {/* User / Partner Portal */}
           <button
