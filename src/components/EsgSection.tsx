@@ -12,7 +12,7 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
   const cards = [
     {
       badge: isKo ? 'KOLAS 규격 분석실' : 'KOLAS Analytical Lab',
-      badgeClass: 'bg-[#001332]/80 text-[#f4faff]',
+      badgeClass: 'bg-[#0D6F8F] text-white',
       sub: isKo ? '품질 및 인증현황' : 'Quality & Certified Standards',
       title: isKo ? '정밀 분석 기반의 초고순도 보증 체계' : 'Trace Analytical Purity Guarantee',
       desc: isKo
@@ -26,7 +26,7 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
     },
     {
       badge: isKo ? '국책 과제 주관 기업' : 'National Project Lead',
-      badgeClass: 'bg-[#38E54D]/25 text-[#0a4d1b] font-bold',
+      badgeClass: 'bg-[#F8D94F] text-[#2E2E2E] font-bold',
       sub: isKo ? 'ESG 친환경 에너지 실증' : 'ESG Clean Energy Pilot R&D',
       title: isKo ? '암모니아(NH₃) 벙커링 인프라 구축 R&D' : 'Green Ammonia (NH₃) Bunkering Hub',
       desc: isKo
@@ -40,7 +40,7 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
     },
     {
       badge: isKo ? '훈장 수훈 • 사회적 책임' : 'National Order of Merit',
-      badgeClass: 'bg-[#001332]/80 text-[#f4faff]',
+      badgeClass: 'bg-[#2E2E2E] text-white',
       sub: isKo ? '경영이념 & 수상 실적' : 'Corporate Governance & Awards',
       title: isKo ? '은탑산업훈장 수훈 • 탄소중립 유공 표창' : 'Silver Tower Order of Industrial Merit',
       desc: isKo
@@ -55,25 +55,25 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
   ];
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#e7f6ff]" id="esg">
+    <section className="w-full py-20 md:py-28 bg-white border-b border-[#E5E7EB]" id="esg">
       <div className="max-w-[1360px] mx-auto px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00677e]/10 text-[#00677e] text-xs font-bold tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00677e]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5F9] text-[#0D6F8F] text-xs font-bold tracking-wider uppercase">
+            <span className="w-2 h-2 rounded-full bg-[#0D6F8F]" />
             QUALITY • INNOVATION • ESG
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#001332] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2E2E2E] tracking-tight leading-tight">
             {isKo ? (
               <>
                 지속적인 연구개발을 통한 품질 혁신과<br />
-                친환경 미래 에너지 전환을 이끕니다
+                <span className="text-[#0D6F8F]">친환경 미래 에너지 전환</span>을 이끕니다
               </>
             ) : (
               'Leading Quality Innovation Through Continuous R&D and Clean Energy Transition'
             )}
           </h2>
-          <p className="text-sm sm:text-base text-[#44474e] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#525252] leading-relaxed">
             {isKo
               ? '(주)MS가스는 국가 규제자유특구 암모니아 실증 R&D를 선도하며, 전통 가스 제조 유통을 넘어 탄소중립 청정에너지의 새로운 기준을 세우고 있습니다.'
               : 'Pioneering state-backed ammonia marine bunkering and hydrogen carrier R&D to define new benchmarks for zero-carbon clean energy distribution.'}
@@ -86,16 +86,16 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
             <div
               key={idx}
               onClick={() => onOpenArticle(card.title, card.sub, card.detailContent, card.image)}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col border border-[#E2EBF2] cursor-pointer group hover:-translate-y-1"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col border border-[#E5E7EB] hover:border-[#0D6F8F] cursor-pointer group hover:-translate-y-1"
             >
-              {/* Image Container */}
-              <div className="h-56 relative overflow-hidden bg-[#001332]">
+              {/* Image Container with Top Border Motif */}
+              <div className="h-56 relative overflow-hidden bg-[#094E65]">
                 <img
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   src={card.image}
                   alt={card.title}
                 />
-                <span className={`absolute top-4 left-4 px-3 py-1 rounded text-xs font-bold backdrop-blur-md ${card.badgeClass}`}>
+                <span className={`absolute top-4 left-4 px-3 py-1 rounded-md text-xs font-bold shadow-sm ${card.badgeClass}`}>
                   {card.badge}
                 </span>
               </div>
@@ -103,19 +103,19 @@ export const EsgSection: React.FC<EsgSectionProps> = ({ currentLang, onOpenArtic
               {/* Content Box */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-xs sm:text-sm font-semibold text-[#00677e]">
+                  <span className="text-xs sm:text-sm font-semibold text-[#0D6F8F]">
                     {card.sub}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#001332] group-hover:text-[#00677e] transition-colors leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#2E2E2E] group-hover:text-[#0D6F8F] transition-colors leading-snug">
                     {card.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed line-clamp-3">
+                  <p className="text-xs sm:text-sm text-[#525252] leading-relaxed line-clamp-3">
                     {card.desc}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-[#def1fc]">
-                  <span className="inline-flex items-center gap-1.5 text-[#00677e] group-hover:text-[#001332] text-xs sm:text-sm font-bold">
+                <div className="pt-3 border-t border-[#E5E7EB]">
+                  <span className="inline-flex items-center gap-1.5 text-[#0D6F8F] group-hover:text-[#094E65] text-xs sm:text-sm font-bold">
                     <span>{card.linkText}</span>
                     <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
                       arrow_forward

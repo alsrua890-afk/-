@@ -41,16 +41,16 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
       : PRODUCTS_DATA.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#f4faff]" id="products">
+    <section className="w-full py-20 md:py-28 bg-[#F6F8FA] border-b border-[#E5E7EB]" id="products">
       <div className="max-w-[1360px] mx-auto px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#00677e]/10 text-[#00677e] text-xs font-bold tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00677e]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5F9] text-[#0D6F8F] text-xs font-bold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-[#0D6F8F]" />
               GAS PORTFOLIO
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#001332] tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2E2E2E] tracking-tight leading-tight">
               {isKo ? (
                 <>
                   다양한 산업분야를 아우르는<br className="hidden sm:inline" /> 고부가가치형 가스 솔루션
@@ -59,7 +59,7 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
                 'High-Value Customized Gas Solutions Across All Strategic Industries'
               )}
             </h2>
-            <p className="text-sm sm:text-base text-[#44474e] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#525252] leading-relaxed">
               {isKo
                 ? '(주)MS가스는 기초 제조 공정부터 초정밀 반도체, 생명 의료, 친환경 미래 에너지까지 고객사의 사양에 최적화된 맞춤형 가스를 안전하게 공급합니다.'
                 : 'From foundational heavy industrial manufacturing to nano-scale semiconductors, clinical life sciences, and future hydrogen-ammonia clean fuel.'}
@@ -67,10 +67,11 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Primary button style matching UI Components in image.png */}
             <button
               type="button"
               onClick={onDownloadCatalog}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#001332] text-white hover:bg-[#00677e] transition-all font-semibold text-xs sm:text-sm shadow-md cursor-pointer hover:shadow-lg transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0D6F8F] hover:bg-[#094E65] text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all cursor-pointer"
             >
               <span>{isKo ? '제품 전체 카탈로그 다운로드' : 'Download Complete Catalog'}</span>
               <span className="material-symbols-outlined text-[18px]">download</span>
@@ -78,17 +79,17 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
           </div>
         </div>
 
-        {/* Quick Filter Pill Buttons */}
-        <div className="flex flex-wrap items-center gap-2 mb-8 border-b border-[#def1fc] pb-4">
+        {/* Quick Filter Pill Buttons (UI Components) */}
+        <div className="flex flex-wrap items-center gap-2 mb-8 pb-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 selectedCategory === cat.id
-                  ? 'bg-[#001332] text-white shadow-sm'
-                  : 'bg-[#def1fc]/60 text-[#44474e] hover:bg-[#def1fc] hover:text-[#001332]'
+                  ? 'bg-[#0D6F8F] text-white shadow-sm'
+                  : 'bg-white text-[#525252] hover:text-[#0D6F8F] border border-[#E5E7EB] hover:bg-[#F6F8FA]'
               }`}
             >
               {cat.label}
@@ -105,14 +106,14 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
               <div
                 key={product.id}
                 onClick={() => onSelectProduct(product)}
-                className="group relative rounded-2xl bg-white p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border border-[#E2EBF2] cursor-pointer hover:-translate-y-1"
+                className="group relative rounded-2xl bg-white p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border border-[#E5E7EB] hover:border-[#0D6F8F] cursor-pointer hover:-translate-y-1"
               >
                 {/* Top Border Accent Line */}
                 <div
                   className={`absolute top-0 left-0 right-0 ${
                     isFeatured
-                      ? 'h-1.5 bg-gradient-to-r from-[#5bd8fe] via-[#00677e] to-[#001332]'
-                      : 'h-1 bg-[#cadde8] group-hover:bg-[#00677e] transition-colors'
+                      ? 'h-1.5 bg-gradient-to-r from-[#F8D94F] via-[#0D6F8F] to-[#094E65]'
+                      : 'h-1 bg-[#E5E7EB] group-hover:bg-[#0D6F8F] transition-colors'
                   }`}
                 />
 
@@ -120,37 +121,37 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
                   {/* Top Badge & Icon */}
                   <div className="flex items-center justify-between">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      className={`px-3 py-1 rounded-md text-xs font-bold ${
                         isFeatured
-                          ? 'bg-[#00677e]/10 text-[#00677e]'
-                          : 'bg-[#def1fc] text-[#44474e]'
+                          ? 'bg-[#E8F5F9] text-[#0D6F8F]'
+                          : 'bg-[#F6F8FA] text-[#525252] border border-[#E5E7EB]'
                       }`}
                     >
                       {product.badge}
                     </span>
-                    <span className="w-10 h-10 rounded-full bg-[#e7f6ff] flex items-center justify-center text-[#001332] group-hover:bg-[#001332] group-hover:text-white transition-colors">
+                    <span className="w-10 h-10 rounded-xl bg-[#E8F5F9] flex items-center justify-center text-[#0D6F8F] group-hover:bg-[#0D6F8F] group-hover:text-white transition-colors">
                       <span className="material-symbols-outlined text-[20px]">{product.iconName}</span>
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#001332] mb-1 group-hover:text-[#00677e] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#2E2E2E] mb-1 group-hover:text-[#0D6F8F] transition-colors">
                       {isKo ? product.titleKo : product.titleEn}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-[#00677e] mb-2">
+                    <p className="text-xs sm:text-sm font-semibold text-[#0D6F8F] mb-2">
                       {isKo ? product.subtitleKo : product.subtitleEn}
                     </p>
-                    <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#525252] leading-relaxed">
                       {isKo ? product.descKo : product.descEn}
                     </p>
                   </div>
 
-                  {/* Pills */}
+                  {/* Tags */}
                   <div className="pt-2 flex flex-wrap gap-1.5">
                     {(isKo ? product.tagsKo : product.tagsEn).map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        className="px-2.5 py-1 rounded bg-[#def1fc] text-[#001332] text-xs font-medium"
+                        className="px-2.5 py-1 rounded-md bg-[#F6F8FA] border border-[#E5E7EB] text-[#2E2E2E] text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -158,8 +159,8 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
                   </div>
                 </div>
 
-                {/* Bottom Action Row */}
-                <div className="mt-6 pt-4 border-t border-[#def1fc] flex items-center justify-between text-[#00677e] group-hover:text-[#001332] text-xs sm:text-sm font-bold">
+                {/* Bottom Action Row - UI Button style (자세히 보기) */}
+                <div className="mt-6 pt-4 border-t border-[#E5E7EB] flex items-center justify-between text-[#0D6F8F] group-hover:text-[#094E65] text-xs sm:text-sm font-bold">
                   <span>{isKo ? product.actionLabelKo : product.actionLabelEn}</span>
                   <span className="material-symbols-outlined transition-transform group-hover:translate-x-1.5">
                     arrow_forward

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
+import { BrandKeywordsSection } from './components/BrandKeywordsSection';
 import { ProductSection } from './components/ProductSection';
 import { LogisticsSection } from './components/LogisticsSection';
 import { EsgSection } from './components/EsgSection';
@@ -80,6 +81,14 @@ export default function App() {
           currentLang={currentLang}
           onExploreProducts={scrollToProducts}
           onOpenConsultation={scrollToSupport}
+          onOpenTelemetry={() => setShowTelemetryModal(true)}
+        />
+
+        {/* 2.5 Brand Keywords & Core Services (From MS Gas Design System) */}
+        <BrandKeywordsSection
+          currentLang={currentLang}
+          onOpenConsultation={scrollToSupport}
+          onExploreProducts={scrollToProducts}
           onOpenTelemetry={() => setShowTelemetryModal(true)}
         />
 

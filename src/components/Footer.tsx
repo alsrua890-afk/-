@@ -19,19 +19,19 @@ export const Footer: React.FC<FooterProps> = ({
   const isKo = currentLang === 'ko';
 
   return (
-    <footer className="w-full bg-[#0B192C] text-[#F4F8FB] border-t border-[#5bd8fe]/15">
+    <footer className="w-full bg-[#1B242C] text-[#cadde8] border-t border-[#0D6F8F]/20">
       <div className="max-w-[1360px] mx-auto px-6 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#5bd8fe]/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Registration */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <div className="bg-white px-2.5 py-1.5 rounded-lg shadow-sm flex items-center justify-center">
-                <MsGasLogo height={28} showStripe={false} />
+              <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm flex items-center justify-center">
+                <MsGasLogo height={28} subtext={isKo ? 'ko' : 'none'} />
               </div>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#f4faff] tracking-tight">
+              <span className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                 {isKo ? '(주)MS가스' : 'MS GAS Co., Ltd.'}
               </span>
-              <span className="px-2.5 py-0.5 rounded bg-[#5bd8fe]/20 text-[#5bd8fe] text-[11px] font-bold tracking-wider">
+              <span className="px-2.5 py-0.5 rounded bg-[#F8D94F] text-[#2E2E2E] text-[11px] font-extrabold tracking-wider">
                 CLEAN ENERGY TECH
               </span>
             </div>

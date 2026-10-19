@@ -221,8 +221,8 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           title={isKo ? 'MS가스 AI 챗봇 열기' : 'Open MS Gas Chatbot'}
           className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 cursor-pointer ${
             isOpen
-              ? 'bg-[#001332] hover:bg-[#002b47] rotate-90 scale-95'
-              : 'bg-gradient-to-r from-[#00677e] to-[#001332] hover:scale-110 shadow-[#00677e]/30'
+              ? 'bg-[#2E2E2E] hover:bg-black rotate-90 scale-95'
+              : 'bg-[#0D6F8F] hover:bg-[#094E65] hover:scale-110 shadow-[#0D6F8F]/30'
           }`}
         >
           {isOpen ? (
@@ -230,7 +230,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           ) : (
             <div className="relative flex items-center justify-center">
               <span className="material-symbols-outlined text-[28px]">smart_toy</span>
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#38E54D] rounded-full border-2 border-[#001332]" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#F8D94F] rounded-full border-2 border-[#0D6F8F]" />
             </div>
           )}
         </button>
@@ -238,21 +238,21 @@ export const Chatbot: React.FC<ChatbotProps> = ({
 
       {/* Chat Window Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-40 w-[calc(100vw-32px)] sm:w-[420px] h-[580px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-[#E2EBF2] flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-6">
+        <div className="fixed bottom-24 right-4 sm:right-6 z-40 w-[calc(100vw-32px)] sm:w-[420px] h-[580px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-[#E5E7EB] flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-6">
           {/* Header */}
-          <div className="bg-[#001332] text-white p-4 flex items-center justify-between border-b border-[#5bd8fe]/20">
+          <div className="bg-[#0D6F8F] text-white p-4 flex items-center justify-between border-b border-white/10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1 shadow-inner">
-                <MsGasLogo height={20} showStripe={false} />
+                <MsGasLogo height={20} subtext="none" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-extrabold text-sm text-white">
                     {isKo ? 'MS 가스봇 (AI 어시스턴트)' : 'MS Gas AI Assistant'}
                   </h3>
-                  <span className="w-2 h-2 rounded-full bg-[#38E54D] animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-[#F8D94F] animate-ping" />
                 </div>
-                <p className="text-[11px] text-[#cadde8]">
+                <p className="text-[11px] text-white/80">
                   {isKo ? '24시간 고압·특수가스 기술 상담' : '24/7 Intelligent Gas Consultant'}
                 </p>
               </div>
@@ -326,8 +326,8 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-2.5 shadow-sm leading-relaxed ${
                       isUser
-                        ? 'bg-[#001332] text-white rounded-tr-xs'
-                        : 'bg-white text-[#0b1e26] border border-[#E2EBF2] rounded-tl-xs'
+                        ? 'bg-[#0D6F8F] text-white rounded-tr-xs'
+                        : 'bg-white text-[#2E2E2E] border border-[#E5E7EB] rounded-tl-xs'
                     }`}
                   >
                     {isUser ? msg.text : renderFormattedText(msg.text)}
@@ -338,8 +338,8 @@ export const Chatbot: React.FC<ChatbotProps> = ({
             })}
 
             {loading && (
-              <div className="flex items-center gap-2 text-xs text-[#00677e] bg-white p-3 rounded-2xl border border-[#def1fc] max-w-[80%] shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#00677e] animate-ping" />
+              <div className="flex items-center gap-2 text-xs text-[#0D6F8F] bg-white p-3 rounded-2xl border border-[#E8F5F9] max-w-[80%] shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#0D6F8F] animate-ping" />
                 <span>{isKo ? 'MS 가스봇이 답변을 작성 중입니다...' : 'Formulating response...'}</span>
               </div>
             )}
@@ -347,7 +347,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           </div>
 
           {/* Suggested Quick Prompts */}
-          <div className="p-2.5 bg-white border-t border-[#def1fc]">
+          <div className="p-2.5 bg-white border-t border-[#E5E7EB]">
             <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
               {quickPrompts.map((prompt, idx) => (
                 <button
@@ -355,7 +355,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   type="button"
                   onClick={() => handleSend(prompt)}
                   disabled={loading}
-                  className="px-2.5 py-1 rounded-full bg-[#f4faff] hover:bg-[#def1fc] text-[#00677e] text-[11px] font-semibold whitespace-nowrap border border-[#def1fc] transition-colors cursor-pointer"
+                  className="px-2.5 py-1 rounded-full bg-[#E8F5F9] hover:bg-[#0D6F8F] hover:text-white text-[#0D6F8F] text-[11px] font-semibold whitespace-nowrap border border-[#0D6F8F]/20 transition-colors cursor-pointer"
                 >
                   {prompt}
                 </button>
@@ -364,7 +364,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           </div>
 
           {/* Chat Input Bar */}
-          <div className="p-3 bg-white border-t border-[#def1fc] flex items-center gap-2">
+          <div className="p-3 bg-white border-t border-[#E5E7EB] flex items-center gap-2">
             <input
               ref={inputRef}
               type="text"
@@ -377,13 +377,13 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   ? '궁금하신 가스 종류나 사양을 질문하세요...'
                   : 'Ask about gas purity, delivery, or pricing...'
               }
-              className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#f4faff] border border-[#def1fc] text-xs sm:text-sm text-[#0b1e26] focus:outline-none focus:ring-2 focus:ring-[#5bd8fe] disabled:opacity-50"
+              className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#F6F8FA] border border-[#E5E7EB] text-xs sm:text-sm text-[#2E2E2E] focus:outline-none focus:border-[#0D6F8F] focus:ring-2 focus:ring-[#0D6F8F]/20 disabled:opacity-50"
             />
             <button
               type="button"
               onClick={() => handleSend()}
               disabled={loading || !input.trim()}
-              className="w-10 h-10 rounded-xl bg-[#001332] hover:bg-[#00677e] disabled:bg-[#def1fc] disabled:text-[#74777f] text-white flex items-center justify-center transition-all cursor-pointer shrink-0"
+              className="w-10 h-10 rounded-xl bg-[#0D6F8F] hover:bg-[#094E65] disabled:bg-[#E5E7EB] disabled:text-[#8E8E8E] text-white flex items-center justify-center transition-all cursor-pointer shrink-0 shadow-sm"
             >
               <span className="material-symbols-outlined text-[18px]">send</span>
             </button>
