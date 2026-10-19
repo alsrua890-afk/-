@@ -1,4 +1,5 @@
 import React from 'react';
+import { MsGasLogo } from './MsGasLogo';
 
 interface FooterProps {
   currentLang: 'ko' | 'en';
@@ -23,7 +24,10 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#5bd8fe]/15">
           {/* Col 1: Brand & Registration */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="bg-white px-2.5 py-1 rounded-lg shadow-sm">
+                <MsGasLogo height={26} showStripe={true} />
+              </div>
               <span className="text-xl sm:text-2xl font-extrabold text-[#f4faff] tracking-tight">
                 {isKo ? '(주)MS가스' : 'MS GAS Co., Ltd.'}
               </span>

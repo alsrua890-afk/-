@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IMAGES } from '../data/mockData';
+import { MsGasLogo } from './MsGasLogo';
 
 interface HeaderProps {
   currentLang: 'ko' | 'en';
@@ -40,14 +40,14 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="fixed top-0 left-0 w-full z-50 bg-[#f4faff]/90 backdrop-blur-xl border-b border-[#0b192c]/5 shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all">
       <div className="h-20 max-w-[1360px] mx-auto px-6 flex items-center justify-between gap-4">
         {/* Brand Logo */}
-        <div className="flex items-center gap-3">
-          <a href="#" className="flex items-center gap-2 group">
-            <img
-              src={IMAGES.logo}
-              alt="MS GAS Logo"
-              className="h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+        <div className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2.5 group">
+            <MsGasLogo
+              height={38}
+              showStripe={true}
+              className="transition-transform group-hover:scale-105 drop-shadow-sm"
             />
-            <span className="font-bold text-xl md:text-2xl text-[#001332] tracking-tight hidden sm:inline-block">
+            <span className="font-extrabold text-xl md:text-2xl text-[#001332] tracking-tight hidden sm:inline-block">
               {currentLang === 'ko' ? '(주)MS가스' : 'MS GAS Co., Ltd.'}
             </span>
           </a>
